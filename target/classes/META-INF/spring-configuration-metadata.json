@@ -1,0 +1,62 @@
+{
+  "groups": [
+    {
+      "name": "amazon.sqs",
+      "type": "com.medlife.deliveries.config.sqs.SqsProperties",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties"
+    },
+    {
+      "name": "amazon.sqs.extended",
+      "type": "com.medlife.deliveries.config.sqs.SqsProperties$Extended",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "amazon.sqs.access-key",
+      "type": "java.lang.String",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties"
+    },
+    {
+      "name": "amazon.sqs.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties"
+    },
+    {
+      "name": "amazon.sqs.extended.s3-access-key",
+      "type": "java.lang.String",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties$Extended"
+    },
+    {
+      "name": "amazon.sqs.extended.s3-bucket-name",
+      "type": "java.lang.String",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties$Extended"
+    },
+    {
+      "name": "amazon.sqs.extended.s3-region",
+      "type": "java.lang.String",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties$Extended"
+    },
+    {
+      "name": "amazon.sqs.extended.s3-secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties$Extended"
+    },
+    {
+      "name": "amazon.sqs.number-of-messages-to-prefetch",
+      "type": "java.lang.Integer",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties"
+    },
+    {
+      "name": "amazon.sqs.region",
+      "type": "java.lang.String",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties"
+    },
+    {
+      "name": "amazon.sqs.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.medlife.deliveries.config.sqs.SqsProperties"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,33 @@
+server:
+  servlet:
+    context-path: /third-party-delivery
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_SERVICE}:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+clickpost:
+  api_key: a152f143-48f8-4e83-8543-68824f7f66cc
+  user_name: medlife
+  base_url: https://test.clickpost.in/api/
+amazon:
+  sqs:
+    region: ca-central-1
+    endpoint: ${SQS_ENPOINT}
+    accessKey: ${SQS_ACCESS_KEY}
+    secretKey: ${SQS_SECRET_KEY}
+    numberOfMessagesToPrefetch: 5
+---
+spring:
+  profiles: staging
+clickpost:
+  api_key: a152f143-48f8-4e83-8543-68824f7f66cc
+  user_name: medlife
+  base_url: https://test.clickpost.in/api/
