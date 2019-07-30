@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deliveries-ENVIRONMENT-BUILD_NUMBER
+  labels:
+    app: deliveries
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: deliveries
+      version: BUILD_NUMBER
+  template:
+    metadata:
+      labels:
+        app: deliveries
+        version: BUILD_NUMBER
+    spec:
+      containers:
+      - name: deliveries
+        image: 007222623420.dkr.ecr.ap-south-1.amazonaws.com/myra-deliveries:1.2
+        ports:
+        - containerPort: 8080
+        env:
+        - name: POSTGRES_SERVICE
+          valueFrom:
+            configMapKeyRef:
+              name: postgres-config
+              key: postgres.service.name
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: postgres-config
+              key: postgres.db.name
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-security
+              key: db.user.name
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-security
+              key: db.user.password
+        - name: SQS_ENPOINT
+          value: https://sqs.ca-central-1.amazonaws.com/919467880622/test_3pl
+        - name: SQS_ACCESS_KEY
+          value: AKIA5MFEOOCXAE6VG4DU
+        - name: SQS_SECRET_KEY
+          value: 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
+        - name: VERSION
+          value: BUILD_NUMBER
